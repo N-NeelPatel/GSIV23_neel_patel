@@ -13,6 +13,7 @@ function App() {
   const [filteredMovies, setFilteredMovies] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+  const [isSearching, setIsSearching] = useState(false); // New state for searching
 
   useEffect(() => {
     getUpcomingMovies()
@@ -25,6 +26,8 @@ function App() {
   }, []);
 
   const handleSearch = (searchTerm) => {
+    setIsSearching(!!searchTerm); // Update isSearching based on the search term
+
     if (!searchTerm) {
       setFilteredMovies(null);
       return;
@@ -60,7 +63,7 @@ function App() {
     loadMoreMovies();
   };
 
-  const moviesToDisplay = filteredMovies || movieData;
+  const moviesToDisplay = isSearching ? filteredMovies : movieData; // Display filteredMovies if searching, otherwise movieData
 
   return (
     <>
@@ -69,19 +72,17 @@ function App() {
         <AiFillHome className="text-[#4A4A4A] mr-3" />
       </div>
       <div className="flex flex-wrap p-3">
-        {/* {moviesToDisplay && <Detail movieData={moviesToDisplay[0]} />} */}
         {!moviesToDisplay || moviesToDisplay.length === 0 ? (
           <EmptyState />
         ) : (
-          moviesToDisplay &&
           moviesToDisplay.map((movie) => (
-            <div className="pb-3 pr-3">
-              <MovieCard key={movie.id} movieData={movie} />
+            <div className="pb-3 pr-3" key={movie.id}>
+              <MovieCard movieData={movie} />
             </div>
           ))
         )}
       </div>
-      {moviesToDisplay && moviesToDisplay.length > 0 && (
+      {!isSearching && moviesToDisplay && moviesToDisplay.length > 0 && (
         <div className="flex justify-center p-3">
           <button
             className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
