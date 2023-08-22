@@ -76,7 +76,7 @@ function App() {
     <Router>
       <>
         <div className="top-navigation flex justify-between items-center p-3 shadow-lg min-w-[512px]">
-          <Search onSearch={handleSearch} />
+          {location.pathname.includes('movie') ? <div className="px-2 py-[4.5px]">Movie Details</div> : <Search onSearch={handleSearch} />}
           <a href="/">
             <AiFillHome className="text-[#4A4A4A] mr-3" />
           </a>
