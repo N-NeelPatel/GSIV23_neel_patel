@@ -4,7 +4,7 @@ import MovieCard from "./components/MovieCard";
 import Search from "./components/Search";
 import EmptyState from "./components/EmptyState";
 import Detail from "./components/Detail";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
 import {
   getUpcomingMovies,
@@ -30,7 +30,7 @@ function App() {
       });
   }, []);
 
-  const handleSearch = async (searchTerm) => {
+  const handleSearch = async (searchTerm:string) => {
     setIsSearching(!!searchTerm);
 
     if (!searchTerm) {
