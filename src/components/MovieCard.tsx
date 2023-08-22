@@ -1,7 +1,7 @@
 export default function MovieCard({movieData}) {
     const imageBaseUrl = 'https://image.tmdb.org/t/p/w500'; 
     const overview = movieData.overview
-    const movieRating = movieData.vote_average * 10
+    const movieRating = Math.round(movieData.vote_average * 10)
     const movieTitle = movieData.title
     return (
         <div className='w-[200px] shadow-lg rounded-b-xl'>

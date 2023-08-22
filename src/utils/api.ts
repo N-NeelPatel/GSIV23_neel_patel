@@ -18,3 +18,7 @@ export const getUpcomingMoviesPage = (currentPage: number) => {
 export const getSingleMovieInfo = (movieId: string) => {
     return axios.get(`${baseUrl}/movie/${movieId}?api_key=${apiKey}`);
 }
+
+export const getSearchResult = (searchTerm: string) => {
+    return axios.get(`${baseUrl}/search/movie?api_key=${apiKey}&query=${searchTerm}`);
+}

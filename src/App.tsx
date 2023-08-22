@@ -5,7 +5,7 @@ import Search from "./components/Search";
 import EmptyState from "./components/EmptyState";
 import Detail from "./components/Detail";
 import { AiFillHome } from "react-icons/ai";
-import { getUpcomingMovies, getUpcomingMoviesPage } from "./utils/api";
+import { getUpcomingMovies, getUpcomingMoviesPage, getSearchResult } from "./utils/api";
 
 function App() {
   const [movieData, setMoviedata] = useState(null);
@@ -13,7 +13,9 @@ function App() {
   const [filteredMovies, setFilteredMovies] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const [isSearching, setIsSearching] = useState(false); // New state for searching
+  const [isSearching, setIsSearching] = useState(false); 
+  const [searchResults, setSearchResults] = useState([]); 
+
 
   useEffect(() => {
     getUpcomingMovies()
@@ -25,18 +27,20 @@ function App() {
       });
   }, []);
 
-  const handleSearch = (searchTerm) => {
-    setIsSearching(!!searchTerm); // Update isSearching based on the search term
+  const handleSearch = async (searchTerm) => {
+    setIsSearching(!!searchTerm);
 
     if (!searchTerm) {
-      setFilteredMovies(null);
+      setSearchResults([]);
       return;
     }
 
-    const filtered = movieData.filter((movie) =>
-      movie.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredMovies(filtered);
+    try {
+      const response = await getSearchResult(searchTerm);
+      setSearchResults(response.data.results);
+    } catch (error) {
+      setError(error);
+    }
   };
 
   const loadMoreMovies = () => {
@@ -63,7 +67,7 @@ function App() {
     loadMoreMovies();
   };
 
-  const moviesToDisplay = isSearching ? filteredMovies : movieData; // Display filteredMovies if searching, otherwise movieData
+  const moviesToDisplay = isSearching ? searchResults : movieData;
 
   return (
     <>
