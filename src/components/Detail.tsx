@@ -47,7 +47,7 @@ export default function Detail() {
     };
 
     findDirector();
-  }, [movieDetail]);
+  }, [movieDetail, castDetail]);
 
   return (
     <>

@@ -77,9 +77,9 @@ function App() {
       <>
         <div className="top-navigation flex justify-between items-center p-3 shadow-lg min-w-[512px]">
           <Search onSearch={handleSearch} />
-          <Link to="/">
+          <a href="/">
             <AiFillHome className="text-[#4A4A4A] mr-3" />
-          </Link>
+          </a>
         </div>
         <div className="flex flex-wrap p-3">
         <Switch>
@@ -89,9 +89,9 @@ function App() {
           ) : (
             moviesToDisplay.map((movie) => (
               <div className="pb-3 pr-3" key={movie.id}>
-                <Link to={`/movie/${movie.id}`}>
+                <a href={`/movie/${movie.id}`}>
                   <MovieCard movieData={movie} />
-                </Link>
+                </a>
               </div>
             ))
           )}
