@@ -7,7 +7,6 @@ export default function Detail() {
   const imageBaseUrl = import.meta.env.VITE_IMAGE_BASE_URL;
 
   const [movieDetail, setMoviedetail] = useState(null);
-  const [error, setError] = useState(null);
   const [castDetail, setCastdetail] = useState(null);
   const [directorName, setDirectorname] = useState(null);
 
@@ -17,7 +16,7 @@ export default function Detail() {
         const response = await getMovieCredits(id);
         setCastdetail(response.data);
       } catch (error) {
-        setError(error);
+        console.log(error);
       }
     };
 
@@ -26,7 +25,7 @@ export default function Detail() {
         const response = await getSingleMovieInfo(id);
         setMoviedetail(response.data);
       } catch (error) {
-        setError(error);
+        console.log(error);
       }
     };
 
