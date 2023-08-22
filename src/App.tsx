@@ -10,7 +10,6 @@ import { getUpcomingMovies, getUpcomingMoviesPage, getSearchResult } from "./uti
 function App() {
   const [movieData, setMoviedata] = useState(null);
   const [error, setError] = useState(null);
-  const [filteredMovies, setFilteredMovies] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [isSearching, setIsSearching] = useState(false); 
@@ -71,7 +70,7 @@ function App() {
 
   return (
     <>
-      <div className="top-navigation flex justify-between items-center p-3 shadow-lg">
+      <div className="top-navigation flex justify-between items-center p-3 shadow-lg min-w-[512px]">
         <Search onSearch={handleSearch} />
         <AiFillHome className="text-[#4A4A4A] mr-3" />
       </div>
