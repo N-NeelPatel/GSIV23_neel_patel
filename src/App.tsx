@@ -72,8 +72,6 @@ function App() {
 
   const moviesToDisplay = isSearching ? searchResults : movieData;
 
-  console.log('movieData', movieData);
-
   return (
     <Router>
       <>
@@ -103,7 +101,7 @@ function App() {
           </Route>
         </Switch>
         </div>
-        {!isSearching && moviesToDisplay && moviesToDisplay.length > 0 && (
+        {!isSearching && moviesToDisplay && moviesToDisplay.length > 0 && location.pathname === "/" && (
           <div className="flex justify-center p-3">
             <button
               className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
