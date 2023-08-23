@@ -21,11 +21,11 @@ interface MovieData {
 }
 
 function App() {
-  const [movieData, setMoviedata] = useState(null);
+  const [movieData, setMoviedata] = useState<any[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState<any[]>([]);
 
   useEffect(() => {
     const fetchUpcomingMovies = async () => {
