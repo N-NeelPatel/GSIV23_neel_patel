@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
-import { FaSearch } from 'react-icons/fa'; 
+import React, { useState } from "react";
+import { FaSearch } from "react-icons/fa";
 
-export default function Search({ onSearch }){
-  const [query, setQuery] = useState('');
+interface SearchProps {
+  onSearch: (searchTerm: string) => void;
+}
+
+export default function Search({ onSearch }: SearchProps) {
+  const [query, setQuery] = useState("");
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newQuery = event.target.value;
