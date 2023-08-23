@@ -1,27 +1,21 @@
-# React + TypeScript + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+## Setup and installation
+```
+git clone https://github.com/N-NeelPatel/GSIV23_neel_patel.git
+cd GSIV23_neel_patel
+```
+## How to run
+```
+npm install  
+npm run dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Screenshots
+dashboard:
+![image](https://github.com/N-NeelPatel/GSIV23_neel_patel/assets/29038590/33f524dd-481e-4f58-95a7-3c8f7bc050a9)
+infinite scrolling:
+![image](https://github.com/N-NeelPatel/GSIV23_neel_patel/assets/29038590/c345c714-7425-4813-a9d3-bd9b9c2c92f3)
+movie details page:
+![image](https://github.com/N-NeelPatel/GSIV23_neel_patel/assets/29038590/9d9116df-86f3-4c03-b3ff-7199b5d62563)
+movie searching functionality:
+![image](https://github.com/N-NeelPatel/GSIV23_neel_patel/assets/29038590/571e1575-55cd-4924-8966-fcd4c9b59db4)
+
