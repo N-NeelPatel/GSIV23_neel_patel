@@ -17,4 +17,5 @@ infinite scrolling:
 movie details page:
 ![image](https://github.com/N-NeelPatel/GSIV23_neel_patel/assets/29038590/9d9116df-86f3-4c03-b3ff-7199b5d62563)
 movie searching functionality:
-![Uploading image.png…]()
+![image](https://github.com/N-NeelPatel/GSIV23_neel_patel/assets/29038590/571e1575-55cd-4924-8966-fcd4c9b59db4)
+
