@@ -3,14 +3,23 @@ import { getSingleMovieInfo, getMovieCredits } from "../utils/api";
 import { useParams } from "react-router-dom";
 
 interface RouteParams {
-    id: string;
+  id: string;
+}
+
+interface MovieDetail {
+  title: string;
+  vote_average: number;
+  release_date: string;
+  runtime: string;
+  overview: string;
+  poster_path: string;
 }
 
 export default function Detail() {
   const { id } = useParams<RouteParams>();
   const imageBaseUrl = import.meta.env.VITE_IMAGE_BASE_URL;
 
-  const [movieDetail, setMoviedetail] = useState(null);
+  const [movieDetail, setMoviedetail] = useState<MovieDetail | null>(null);
   const [castDetail, setCastdetail] = useState(null);
   const [directorName, setDirectorname] = useState(null);
 
