@@ -2,8 +2,12 @@ import { useState, useEffect } from "react";
 import { getSingleMovieInfo, getMovieCredits } from "../utils/api";
 import { useParams } from "react-router-dom";
 
+interface RouteParams {
+    id: string;
+}
+
 export default function Detail() {
-  const { id } = useParams();
+  const { id } = useParams<RouteParams>();
   const imageBaseUrl = import.meta.env.VITE_IMAGE_BASE_URL;
 
   const [movieDetail, setMoviedetail] = useState(null);
