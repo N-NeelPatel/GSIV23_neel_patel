@@ -12,6 +12,14 @@ import {
   getSearchResult,
 } from "./utils/api";
 
+interface MovieData {
+  id: string;
+  poster_path: string;
+  title: string;
+  vote_average: number;
+  overview: string;
+}
+
 function App() {
   const [movieData, setMoviedata] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
@@ -91,7 +99,7 @@ function App() {
               {!moviesToDisplay || moviesToDisplay.length === 0 ? (
                 <EmptyState />
               ) : (
-                moviesToDisplay.map((movie) => (
+                moviesToDisplay.map((movie: MovieData) => (
                   <div className="pb-3 pr-3" key={movie.id}>
                     <a href={`/movie/${movie.id}`}>
                       <MovieCard movieData={movie} />
