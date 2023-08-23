@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-
-interface SearchProps {
-  onSearch: (searchTerm: string) => void;
-}
+import { SearchProps } from "../types/general";
 
 export default function Search({ onSearch }: SearchProps) {
   const [query, setQuery] = useState("");

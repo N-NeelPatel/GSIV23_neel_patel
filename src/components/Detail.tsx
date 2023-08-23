@@ -1,30 +1,7 @@
 import { useState, useEffect } from "react";
 import { getSingleMovieInfo, getMovieCredits } from "../utils/api";
 import { useParams } from "react-router-dom";
-
-interface RouteParams {
-  id: string;
-}
-
-interface MovieDetail {
-  title: string;
-  vote_average: number;
-  release_date: string;
-  runtime: string;
-  overview: string;
-  poster_path: string;
-}
-
-interface Member {
-  id: string;
-  job: string;
-  name: string;
-}
-
-interface CastDetail {
-  crew: Member[];
-  cast: Member[];
-}
+import { RouteParams, MovieDetail, Member, CastDetail } from "../types/general";
 
 export default function Detail() {
   const { id } = useParams<RouteParams>();

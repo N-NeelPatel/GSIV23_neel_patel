@@ -11,14 +11,7 @@ import {
   getUpcomingMoviesPage,
   getSearchResult,
 } from "./utils/api";
-
-interface MovieData {
-  id: string;
-  poster_path: string;
-  title: string;
-  vote_average: number;
-  overview: string;
-}
+import { MovieData } from "./types/general";
 
 function App() {
   const [movieData, setMoviedata] = useState<any[]>([]);

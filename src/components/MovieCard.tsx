@@ -1,13 +1,4 @@
-interface MovieData {
-  poster_path: string;
-  title: string;
-  vote_average: number;
-  overview: string;
-}
-
-interface MovieCardProps {
-  movieData: MovieData;
-}
+import { MovieCardProps } from "../types/general";
 
 export default function MovieCard({ movieData }: MovieCardProps) {
   const imageBaseUrl = import.meta.env.VITE_IMAGE_BASE_URL;
