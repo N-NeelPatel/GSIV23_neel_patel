@@ -15,13 +15,24 @@ interface MovieDetail {
   poster_path: string;
 }
 
+interface Member {
+  id: string;
+  job: string;
+  name: string;
+}
+
+interface CastDetail {
+  crew: Member[];
+  cast: Member[];
+}
+
 export default function Detail() {
   const { id } = useParams<RouteParams>();
   const imageBaseUrl = import.meta.env.VITE_IMAGE_BASE_URL;
 
   const [movieDetail, setMoviedetail] = useState<MovieDetail | null>(null);
-  const [castDetail, setCastdetail] = useState(null);
-  const [directorName, setDirectorname] = useState(null);
+  const [castDetail, setCastdetail] = useState<CastDetail | null>(null);
+  const [directorName, setDirectorname] = useState("");
 
   useEffect(() => {
     const fetchMovieCredits = async () => {
@@ -50,7 +61,7 @@ export default function Detail() {
     const findDirector = () => {
       if (castDetail && castDetail.crew) {
         const director = castDetail.crew.find(
-          (member) => member.job === "Director"
+          (member: Member) => member.job === "Director"
         );
         if (director) {
           setDirectorname(director.name);
@@ -93,7 +104,7 @@ export default function Detail() {
               {castDetail &&
                 castDetail.cast
                   .slice(0, 20)
-                  .map((cast) => cast.name)
+                  .map((cast: Member) => cast.name)
                   .join(", ")}
               {castDetail && castDetail.cast.length > 20 ? " ..." : ""}
             </div>
